@@ -13,6 +13,11 @@
 - Faiss 의 인덱스는 모두 trade off 관계에 있다. 정확도를 위해 속도나 메모리를 포기하거나 정확도를 조금 손해보고 속도를 높이거나 메모리를 높이거나 하는 방식이다.
 - 한꺼번에 설명하기 빡세니 한개씩 뜯어보자.
 
+## Index Cheat sheet
+- 아래는 도쿄대에서 강의 자료로 사용 된 Index cheat sheet 이다.
+- 긴 글을 읽기 귀찮다면 그냥 아래 그림을 참조하고 대충 갖다 쓰자.
+  ![](images/IndexCheatSheet.jpeg)
+
 # 1. Flat
 ### 인덱스 설명
 - 가장 간단한 인덱스로 bruteforce 를 이용하여 해당 점과 인덱스 내의 모든 벡터들과 연산하여 적정 값을 찾아 낸다.
@@ -424,8 +429,8 @@
 ### 작성중..
 
 # Reference
-- https://github.com/facebookresearch/faiss/wiki/
 - https://www.pinecone.io/
+- https://github.com/facebookresearch/faiss/wiki/
 
 # 집에 쌀이 없습니다.
 - 이 글이 유용 하셨다면 커피한잔만 사주세요..
