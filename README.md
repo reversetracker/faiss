@@ -423,5 +423,6 @@ D, I = index.search(xb[:5], k) # sanity check
 - https://github.com/facebookresearch/faiss/wiki/
 - https://www.pinecone.io/
 
-# 이 글이 유용 하셨다면 커피한잔 사주세요 집에 쌀이 없습니다.
+# 집에 쌀이 없습니다.
+- 이 글이 유용 하셨다면 커피한잔만 사주세요..
 - 1002-937-669943 우리은행 이용우
