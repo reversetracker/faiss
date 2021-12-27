@@ -405,7 +405,7 @@ D, I = index.search(xb[:5], k) # sanity check
 - 아래는 Flat vs PQ vs IVFPQ
 
   |Index|Memory|Query Time|Recall|Notes|
-    |------|---|---|---|---|
+  |------|---|---|---|---|
   |Flat|~256Mb|~8.2ms|100%|Good for small datasets or where query time is irrelevant|
   |PQ|~6.5Mb|~1.49ms|50%|compression and search speeds, with reasonable recall score|
   |IVFPQ|~9.2Mb|~0.09ms|52%|impressive memory compression and search speeds, with reasonable recall scores.|
@@ -417,6 +417,9 @@ D, I = index.search(xb[:5], k) # sanity check
 - 벡터의 용량이 너무 커서 Memory 이슈가 있을 때 권고 된다.
 
 # 4. LSH
+### 작성중..
+
+# 5. HNSW
 ### 작성중..
 
 # Reference
