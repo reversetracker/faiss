@@ -23,15 +23,16 @@
 - 아래에서 설명 하겠지만 Product Quantization 같은 경우 저장되는 벡터들이 압축 되므로 메모리 공간을 매우 효율적으로 사용 할 수 있지만 해당 인덱스에선 그런 것들을 기대 할 수 없다.
 - GPU 를 사용 할 수 있으므로 GPU 가 포함 된 노드에선 성능 향상을 꾀 할 수 있다.
 
-### Flat implementation
-```python
-index = faiss.IndexFlatL2(d)   # build the index
-print(index.is_trained)        # True will be printed
-index.add(xb)                  # add vectors to the index
-
-k = 4                          # we want to see 4 nearest neighbors
-D, I = index.search(xb[:5], k) # sanity check
-```
+### IndexFlatL2 구현
+- faiss 를 이용하여 IndexFlatL2 를 구현 해보자.
+  ```python
+  index = faiss.IndexFlatL2(d)   # build the index
+  print(index.is_trained)        # True will be printed
+  index.add(xb)                  # add vectors to the index
+  
+  k = 4                          # we want to see 4 nearest neighbors
+  D, I = index.search(xb[:5], k) # sanity check
+  ```
 - 이것이 전부다.
 - 2번째 줄의 index.is_trained를 좀 살펴보자.
 - 주석을 보면 알겠지만 `assert is_trained == True` 이다.
