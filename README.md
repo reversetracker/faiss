@@ -6,14 +6,14 @@
 - 다만 프로젝트 별로 다루는 데이터나 구현 내용에 따라 전략적으로 인덱스를 변경해야 할 필요가 있다.
 - 따라서 이번 글에선 인덱스를 고를 때 생각 할 수 있는 힘을 가질 수 있도록 인덱스들의 원리나 벤치마크등을 조금 집중적으로 다룰 생각이다.
 
-# 이 글에 앞서..
+## 이 글에 앞서..
 - 찬찬히 뜯어 볼거긴 하지만 faiss 의 인덱스 종류에는 대표적으로 Flat, IVF, LSH, PQ 등이 있다.
 - 카오스의 히든캐릭 처럼 당첨만 되면 무조건 장땡인 그런 인덱스는 없고 각각의 장단점이 있다.
 - 아마도 faiss 를 처음 접하는 경우 어떤 인덱스를 사용해야 하는지 의문이 들 수 있을거라고 본다.
 - Faiss 의 인덱스는 모두 trade off 관계에 있다. 정확도를 위해 속도나 메모리를 포기하거나 정확도를 조금 손해보고 속도를 높이거나 메모리를 높이거나 하는 방식이다.
 - 한꺼번에 설명하기 빡세니 한개씩 뜯어보자.
 
-## 1. Flat
+# 1. Flat
 ### 인덱스 설명
 - 가장 간단한 인덱스로 bruteforce 를 이용하여 해당 점과 인덱스 내의 모든 벡터들과 연산하여 적정 값을 찾아 낸다.
   ![](images/IndexFlatL2-1.png)
@@ -45,7 +45,7 @@ D, I = index.search(xb[:5], k) # sanity check
 - 128차원 정도 되는 벡터 10000~20000개 수준에서 맥북프로 기본 cpu (m1 chip 아님) 기준 0.2초 이하의 수준을 보여준다.
 
 
-## 2. IVF (Inverted File Index)
+# 2. IVF (Inverted File Index)
 ### 인덱스 설명
 
 - 눈치 빠른 사람은 아래 그림만 봐도 어느정도 눈치를 깔 것이다.
@@ -156,7 +156,7 @@ D, I = index.search(xb[:5], k) # sanity check
     5. https://github.com/facebookresearch/faiss/wiki/Guidelines-to-choose-an-index
 
 
-## 3. PQ
+# 3. PQ
 ### 인덱스 설명
 - Product Quantization 의 줄임말이다.
 - 눈치 챘는지 모르겠지만 Flat 이나 IVF 인덱스는 전체 벡터를 저장 했다.
@@ -325,10 +325,12 @@ D, I = index.search(xb[:5], k) # sanity check
 - 처음엔 나는 회수율을 보고 좀 당황하긴 했는데 앞서 말했듯 엄청나게 많은 데이터 속에서 어찌됬건 이쁜여자 사진이나 나오면 된다 라는 정도의 구현이라면 해당 인덱스도 충분히 각광 받을 수 있겠다는 생각이 든다.
 
 ### PQ Benchmark
-|Index|Memory|Query Time|Recall|Notes|
+- Flat vs PQ
+
+  |Index|Memory|Query Time|Recall|Notes|
   |------|---|---|---|---|
-|Flat|~256Mb|~8.2ms|100%|Good for small datasets or where query time is irrelevant|
-|PQ|~6.5Mb|~1.49ms|50%|compression and search speeds, with reasonable recall score|
+  |Flat|~256Mb|~8.2ms|100%|Good for small datasets or where query time is irrelevant|
+  |PQ|~6.5Mb|~1.49ms|50%|compression and search speeds, with reasonable recall score|
 - memory 사용량을 보라 압도적인 compression 이 가능하다.
 - query 시간도 엄청나게 줄어든 것을 볼 수 있다.
 
@@ -413,3 +415,11 @@ D, I = index.search(xb[:5], k) # sanity check
 
 ### When to use
 - 벡터의 용량이 너무 커서 Memory 이슈가 있을 때 권고 된다.
+
+# 4. LSH
+### 작성중..
+
+# Reference
+- https://github.com/facebookresearch/faiss/wiki/
+- https://www.pinecone.io/
+- 
