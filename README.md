@@ -49,12 +49,12 @@ D, I = index.search(xb[:5], k) # sanity check
 ### 인덱스 설명
 
 - 눈치 빠른 사람은 아래 그림만 봐도 어느정도 눈치를 깔 것이다.
-  ![](images/indexIVFFlat-1.png)
+  ![](images/IndexIVFFlat-1.png)
 - 해당 인덱스는 상단 그림처럼 데이터를 가지고 Cluster 를 형성 한다.
 - 위의 셀들을 voronoi cell 이라 부르고 그 셀 중앙 값을 centroids 라고 부른다.
 - 쿼리를 요청 시 xq 과 centroids 들과의 거리만 계산한다.
-  ![](images/indexIVFFlat-2.png)
-  ![](images/indexIVFFlat-3.png)
+  ![](images/IndexIVFFlat-2.png)
+  ![](images/IndexIVFFlat-3.png)
 - centroids 간의 거리를 바탕으로 가장 인접한 셀들을 nprobe 값 만큼 가져온다.
 - nprobe 값이 너무 작으면 아쉽게 놓치는 인접 셀들이 많아질테고 그렇다고 너무 크면 Flat 과 다를바가 없어진다.
 - 적정한 값을 채택 시 꾀 높은 수준의 퀄리티와 빠른속도를 가질 수 있다.
@@ -101,7 +101,7 @@ D, I = index.search(xb[:5], k) # sanity check
 - 해당 값을 올리면 예상되는 검색 속도는 느려지고 검색 결과는 대부분의 경우 더 높은 품질을 보증한다.
 
 ### IndexIVFFlat Benchmark
-![](images/indexIVFFlat-4.png)
+![](images/IndexIVFFlat-4.png)
 - 상단 값은 검색이 돌아가는 서버의 spec 에 따라 다르므로 자신의 데이터셋 크기와 하드웨어 성능등을 고려하여 적정한 값을 직접 구해야 한다.
 - Table: Flat vs IVF
 
