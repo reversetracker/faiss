@@ -192,12 +192,13 @@ D, I = index.search(xb[:5], k) # sanity check
 
 
 ### Simple IndexPQ Process
-- 헛짓거리 하지 말고 빠른 이해를 위해 PQ 의 프로세스를 간략히 요약해 보자
-  ![](images/IndexPQ-3.mp4)
-    1. Taking a big, high-dimensional vector,
-    2. Splitting it into equally sized chunks — our subvectors,
-    3. Assigning each of these subvectors to its nearest centroid (also called reproduction/reconstruction values),
-    4. Replacing these centroid values with unique IDs — each ID represents a centroid
+![](images/IndexPQ-3.gif)
+  1. Taking a big, high-dimensional vector,
+  2. Splitting it into equally sized chunks — our subvectors,
+  3. Assigning each of these subvectors to its nearest centroid (also called reproduction/reconstruction values),
+  4. Replacing these centroid values with unique IDs — each ID represents a centroid
+  
+
 
 ### 코드로 구현 한 Simple Product Quantization
 - `백문이 불여일타` 라고 하니 그림과 함께 파이썬 코드를 참조하자.
